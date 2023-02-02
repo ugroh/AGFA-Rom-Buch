@@ -76,12 +76,13 @@
 %% -- Die einzelnen Referenzen mit 
 %% -- \begin{refsection} .. \printbibliography \end{refsection} in dem jeweiligen Artikel
 %% --
-\input{./preamble/Rom-BibLaTeX}
+\input{./preamble/Rom-BibLaTeX} 
 
-%% -- Einzelne bib-Dateien oder eine gemeinsame was Aufwand bedeutet
+%% -- Eine gemeinsame bib-Datei sonst geht es nicht
 %% --
-\addbibresource{./content/content-ulgr/bib-ulgr/Biblio-ulgr.bib}	
-\addbibresource{./content/content-abcd/bib-abc/Biblio-ulgr.bib}	
+\addbibresource{./bib/Rom-Biblio.bib}
+%\addbibresource{./content/content-ulgr/bib-ulgr/Biblio-ulgr.bib}	
+%\addbibresource{./content/content-abcd/bib-abc/Biblio-ulgr.bib}	
 
 \ExecuteBibliographyOptions{%
 	,backref	= false 			% true = was habe ich genutzt
