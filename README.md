@@ -10,11 +10,11 @@
 	  
 	wird es eingebunden.
 	
-*  Die `abcd-Biblio.bib` Datei wird über
+*  Die `abcd-Biblio.bib` müssen in eine einzige Datei übertragen werden (muss dies nochmals prüfen). Diese findet sich in 
 
-	\addbibresource{./content/content-abcd/bib-abc/abcd-Biblio.bib}
+	\addbibresource{./bib/Rom-Biblio.bib}
 	
-	eingebunden. Man muss dann nicht noch zusätzlich etwas unternehmen. Für die Pflege der Bibliothek ist der Teilnehmer verantwortlich. 
+	eingebunden. Für die Pflege der eigenen Bibliothek ist der Teilnehmer verantwortlich. 
 	
 *  Zu klären sind dann noch die verwendeten eigenen definitionen der Teilnehmer. Vielleicht ist es insgesamt besser, wenn man alle in eine Gesamtdatei überführt und diese prüft. 
 
