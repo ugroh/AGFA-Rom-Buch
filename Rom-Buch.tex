@@ -1,13 +1,15 @@
 % !TEX TS-program = pdflatexmk
 %% ---------------------------------------------------
 %% -- Stand: 2023/02/02
+%% -- Datei für die Erstellung des Rom-Buchs
 %% -- Master-Datei für die Erstellung des Beitrags 
 %% -- Wir nutzen KOMA-Script  
 %% ---------------------------------------------------
 \documentclass[%
-	,ngerman					% Deutsch als Standard, andere über babel
-	,bibliography 	= leveldown % kein eigenes Kapitel sondern ein Abschnitt
-%	,parskip = half+			% halbe Leerzeile Abstand für Absätze
+,ngerman				
+,bibliography 	= leveldown 
+%,draft
+% ,parskip = half+			
 	]{scrbook}
 
 %% -- KOMA Otions
@@ -21,7 +23,6 @@
 % 	,DIV		= calc		% siehe KOMA-Script 2.6, S. 42
 	,open		= any		% siehe KOMA-Script 3.16, S. 111
 	,headings 	= small		% siehe KOMA-Script 3.16, S. 113
-	,open		= any
 	}
 
 %% -- Unterstützung von Paketen
@@ -30,7 +31,7 @@
 
 %% -- Gehe davon aus, dass alle UTF8-nutzen
 %% --
-\usepackage[T1]{fontenc}		%% für LuaLaTeX entbehrlich
+\usepackage[T1]{fontenc}		
 
 
 %% -- Sprache und Anführungszeichen richtig
@@ -72,20 +73,29 @@
 \input{./preamble/Rom-Abkuerzungen}
 
 %% -- Literatur
-%% -- Die einzelnen Referenzen kann man dann mit den Möglichkeiten des Pakets lokal halten
+%% -- Die einzelnen Referenzen mit 
 %% -- \begin{refsection} .. \printbibliography \end{refsection} in dem jeweiligen Artikel
 %% --
 \input{./preamble/Rom-BibLaTeX}
-\addbibresource{./bib-abcd/abcd-Biblio.bib}	
+
+%% -- Einzelne bib-Dateien oder eine gemeinsame was Aufwand bedeutet
+%% --
+\addbibresource{./content/content-ulgr/bib-ulgr/ulgr-Biblio.bib}	
+\addbibresource{./content/content-abcd/bib-abc/abcd-Biblio.bib}	
+
 \ExecuteBibliographyOptions{%
-	,backref	= false 	% true = was habe ich genutzt
+	,backref	= false 			% true = was habe ich genutzt
  	,url		= true		% true: URL werden angezeigt
  	,doi		= false		% DOI werden im Titel hinterlegt 
 	,eprint		= false		% true  - ” -
 	}
-%% -- Eigene, zusätzliche Definitionen
-%% -- 
-\input{./content-abcd/abcd-Defn}
+	
+%% -- Zusätzliche Definitionen; müssen eventuell
+%% -- in eine gemeinsame Datei wegen doppelter Befehle
+%% --
+\input{./content/content-ulgr/ulgr-Defn}
+\input{./content/content-abcd/abcd-Defn}
+
 %% -- Inhaltsverzeichnis -> Die Vorträge
 %% -- KOMA-Script 12.4
 %% --
@@ -112,11 +122,11 @@
 \begin{document}
 
 %% -- Frontmatter
-%\frontmatter
-%\input{./content/Rom-Titelseite}
-%\tableofcontents
-%\input{./content/Rom-Vorwort}
-%\input{./content/Rom-Agenda}
+\frontmatter
+\input{./content/Rom-Titelseite}
+\tableofcontents
+\input{./content/Rom-Vorwort}
+\input{./content/Rom-Agenda}
 
 %% -- Mainmatter
 %% -- Beiträge der Teilnehmer
@@ -124,7 +134,8 @@
 
 \mainmatter
 
-\input{./content-abcd/abcd-Beitrag}
+\input{./content/content-ulgr/ulgr-Beitrag}
+\input{./content/content-abcd/abcd-Beitrag}
 	
 %% -- Backmattter
 %% -- Literaturverzeichnis
