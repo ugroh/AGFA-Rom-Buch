@@ -23,6 +23,10 @@
 * Zur [Vorlage der Teilnehmer](https://github.com/ugroh/AGFA-Rom-Teilnehmer) 
 * **TODO** Überarbeiten, damit alles kompakter wird.
 
+#### Updtes
+
+* 2023/02/04 : LuaLaTeX Unterstützung; man kann sowohl mot PDFLaTeX als auch mit LuaLaTeX die Datei kompilieren. Der Vorteil von LuaLaTeX ist es, dass alle Unicode-Charakter unterstützt werden.
+
 <ulgr@math.uni-tuebingen.de>
 
 
