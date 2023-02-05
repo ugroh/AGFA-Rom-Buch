@@ -23,7 +23,9 @@
 * Zur [Vorlage der Teilnehmer](https://github.com/ugroh/AGFA-Rom-Teilnehmer) 
 * **TODO** Überarbeiten, damit alles kompakter wird.
 
-#### Updtes
+#### Updates
+
+* 2023/02/05 : Man kann nun wählen, ob man ein Rom-Buch als PDF haben will (dann fangen alle Beiträge auf einer ungeraden Seite an), oder ob man eine Online-Version haben will (kompakter). 
 
 * 2023/02/04 : LuaLaTeX Unterstützung; man kann sowohl mot PDFLaTeX als auch mit LuaLaTeX die Datei kompilieren. Der Vorteil von LuaLaTeX ist es, dass alle Unicode-Charakter unterstützt werden.
 
