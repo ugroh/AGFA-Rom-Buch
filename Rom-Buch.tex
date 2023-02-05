@@ -9,10 +9,10 @@
 %% -- Wir nutzen KOMA-Script  
 %% ---------------------------------------------------
 \documentclass[%
-,ngerman				
-,bibliography 	= leveldown 
-%,draft
-% ,parskip = half+			
+	,ngerman				
+	,bibliography 	= leveldown 
+%	,draft
+%	,parskip = half+			
 	]{scrbook}
 
 %% -- KOMA Otions
@@ -24,10 +24,19 @@
 	,twoside	= true		% siehe KOMA-Script 2.6, S. 47
 	,fontsize	= 12pt		% Standard ist 11pt
 % 	,DIV		= calc		% siehe KOMA-Script 2.6, S. 42
-	,open		= any		% siehe KOMA-Script 3.16, S. 111
 	,headings 	= small		% siehe KOMA-Script 3.16, S. 113
 	}
 
+%% -- Buch- oder Onlineversion
+%% -- 
+\usepackage{ifthen}
+	\newboolean{Rom2Buch}
+	\setboolean{Rom2Buch}{false} % true = Buchversion / false = online
+	
+\ifthenelse{\boolean{Rom2Buch}}
+	{\KOMAoptions{open = right}} % für Buch
+	{\KOMAoptions{open = any}}	 % für online	
+	
 %% -- Unterstützung von Paketen
 %% --
 \usepackage{scrhack}
@@ -143,13 +152,16 @@
 
 %% -- Frontmatter
 \frontmatter
-\input{./content/Rom-Titelseite}
+\ifthenelse{\boolean{Rom2Buch}}
+	{\input{./content/Rom-Titel-Buch}} 		% Titelseite für Buch
+	{\input{./content/Rom-Titel-Online}}	% Titelseite für online
+%	\input{./content/Rom-Titelseite}
 \tableofcontents
 \input{./content/Rom-Vorwort}
 \input{./content/Rom-Agenda}
 
 %% -- Mainmatter
-%% -- Beiträge der Teilnehmer
+%% -- Beiträge der Teilnehmer; immer in einem Tab wenn der Editor dies unterstützt
 %% --
 
 \mainmatter
