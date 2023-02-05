@@ -33,9 +33,25 @@
 \usepackage{scrhack}
 
 %% -- Gehe davon aus, dass alle UTF8-nutzen
-%% --
-\usepackage[T1]{fontenc}		
-
+%% -- und biete auch LuaLaTeX an
+%% -- 
+\usepackage{iftex}
+\ifluatex
+    \usepackage{libertinus-otf}
+%    \RequirePackage[%
+%    	,TT={Scale=0.88
+%    	,FakeStretch=0.9}
+%    	,SS={Scale=0.9}
+%    	,RM={Scale=0.9}
+%    	,DefaultFeatures={Ligatures=TeX}]{lucida-otf} 
+	\unimathsetup{partial=upright}
+    \unimathsetup{math-style=ISO}
+    \setmathfont[range=\mathcal, Scale=MatchUppercase]{LatinModernMath-Regular}
+   \setmathfont[range={\mathfrak},Scale=MatchUppercase]{LatinModernMath-Regular}
+\else
+	\usepackage[T1]{fontenc}	
+	\usepackage{libertinus}	
+\fi 
 
 %% -- Sprache und Anführungszeichen richtig
 %% -- Andere Sprache via \selectlanguage{sprache}; siehe Manual
@@ -58,10 +74,6 @@
 	,french  = guillemets
 	,german  = guillemets
 	,english = american]{csquotes}
-
-%% -- Die Schrift
-%% --
-\usepackage{libertinus}
 
 %% -- Das Layout
 %% --
