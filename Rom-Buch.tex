@@ -114,15 +114,30 @@
 \input{./content/content-ulgr/Defn-ulgr}
 \input{./content/content-abcd/Defn-abcd}
 
+%% -- Eine gemeinsame bib-Datei sonst geht es nicht
+%% --
+\addbibresource{./bib/Rom-Biblio.bib}
+%\addbibresource{./content/content-ulgr/bib-ulgr/Biblio-ulgr.bib}	
+%\addbibresource{./content/content-abcd/bib-abc/Biblio-abcd.bib}	
+
+\ExecuteBibliographyOptions{%
+	,backref		= false 			% true = was habe ich genutzt
+ 	,url		= true		% true: URL werden angezeigt
+ 	,doi		= false		% DOI werden im Titel hinterlegt 
+	,eprint		= false		% true  - ” -
+	}
+
+
 %% -- Links farbig etc.
 %% --
-\hypersetup{%
-	,colorlinks	= true                                                          
-	,urlcolor	= blue  %                                                              
-	,citecolor	= blue  %                                                          
-	,linkcolor	= blue	% 
-%  	,hidelinks 			% Vor dem Druck % entfernen
-	}
+\ifthenelse{\boolean{Rom2Buch}}
+	{\hypersetup{hidelinks=true}} % für Buch keine Links
+	{\hypersetup{%
+		,colorlinks	= true                                                          
+		,urlcolor	= blue  %                                                              
+		,citecolor	= blue  %                                                          
+		,linkcolor	= blue	}
+	}	 % für online	
 
 %% -- Inhaltsverzeichnis -> Die Vorträge
 %% -- KOMA-Script 12.4
