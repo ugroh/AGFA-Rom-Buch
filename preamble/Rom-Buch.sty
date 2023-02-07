@@ -28,6 +28,23 @@
 \ifthenelse{\boolean{Rom2Buch}}
 	{\KOMAoptions{open = right}} % für Buch
 	{\KOMAoptions{open = any}}	 % für online
+	
+%% -- Inhaltsverzeichnis -> Die Vorträge
+%% -- KOMA-Script 12.4
+%% --
+\renewcaptionname{ngerman}{\contentsname}{Die Vorträge}
+
+%% -- Keine ganze Zeile Abstand
+%% -- KOMA-Script 15.3; Abb. 15.1
+%% --
+\DeclareTOCStyleEntries[
+	raggedentrytext,
+	beforeskip=.8em plus 1pt
+]{tocline}{chapter}
+
+\newcommand{\LongTitel}{}
+\newcommand{\ShortTitel}{}
+\newcommand{\AutorenBeitrag}{}
 
 \ProcessOptions\relax
 
@@ -36,8 +53,8 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage{scrhack}
-\RequirePackage{../preamble/Rom-Layout}
-\RequirePackage{../preamble/Rom-BibLaTeX}
+\RequirePackage{./preamble/Rom-Layout}
+\RequirePackage{./preamble/Rom-BibLaTeX}
 
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -95,11 +112,12 @@
 \RequirePackage[%  
 	,breaklinks= true                                                     
 	]{hyperref}          		%% \href{xterner-Link}{Bezeichnung-in-Doku}
+
 % -----------------------------------------------------------
 \usepackage{cleveref}
 
 %% -- Abkürzungen
 %% --
-\RequirePackage{../preamble/Rom-Abkuerzungen}
+\RequirePackage{./preamble/Rom-Abkuerzungen}
 
-\RequirePackage{../preamble/Rom-Mathematik}
+\RequirePackage{./preamble/Rom-Mathematik}

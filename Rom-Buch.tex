@@ -3,13 +3,13 @@
 % !TEX tabbedFile{./content/content-abcd/Beitrag-ulgr.tex}(abcd)
 % !TEX TS-program = pdflatexmk
 %% ---------------------------------------------------
-%% -- Stand: 2023/02/05
+%% -- Stand: 2023/02/07
 %% -- Datei für die Erstellung des Rom-Buchs
 %% -- Wir nutzen KOMA-Script  
 %% ---------------------------------------------------
 \documentclass[%
 	,ngerman				
-	,bibliography 	= leveldown 
+	,bibliography 	= leveldown % nicht Chapter
 %	,draft
 %	,parskip = half+			
 	]{scrbook}
@@ -20,7 +20,7 @@
 	,paper 		= a4
 	,pagesize
 	,BCOR		= 15mm		% siehe KOMA-Script 2.6, S. 39
-	,twoside		= true			% siehe KOMA-Script 2.6, S. 47
+	,twoside		= true		% siehe KOMA-Script 2.6, S. 47
 	,fontsize	= 12pt		% Standard ist 11pt
 % 	,DIV		= calc		% siehe KOMA-Script 2.6, S. 42
 	,headings 	= small		% siehe KOMA-Script 3.16, S. 113
@@ -29,27 +29,21 @@
 \input{./preamble/Rom-Pakete}
 
 \usepackage[
-%	,Rom2Buch
-	,Rom2Online
+	,Rom2Buch
+%	,Rom2Online
 	]{./preamble/Rom-Buch}
 
-%% -- Die Pakete
+%% -- Literaturverzecinis seprat bei jedem Beitrag
+%% -- \begin{refsection} .. \end{refsection}
+%% -- Es können die jewiligen bib-Dateinen verwendet werden
+%% -- Bitte Pfad richtig setzen
 %% --
-
-
-
-
-%% -- Literatur
-
-
-%% -- Eine gemeinsame bib-Datei sonst geht es nicht
-%% --
-\addbibresource{./bib/Rom-Biblio.bib}
-%\addbibresource{./content/content-ulgr/bib-ulgr/Biblio-ulgr.bib}	
-%\addbibresource{./content/content-abcd/bib-abc/Biblio-ulgr.bib}	
-
+%\addbibresource{./bib/Rom-Biblio.bib}
+\addbibresource{./content/content-ulgr/bib-ulgr/Biblio-ulgr.bib}	
+\addbibresource{./content/content-abcd/bib-abc/Biblio-ulgr.bib}	
+%%
 \ExecuteBibliographyOptions{%
-	,backref	= false 			% true = was habe ich genutzt
+	,backref		= false 		% true = was habe ich genutzt
  	,url		= true		% true: URL werden angezeigt
  	,doi		= false		% DOI werden im Titel hinterlegt 
 	,eprint		= false		% true  - ” -
@@ -61,51 +55,15 @@
 \input{./content/content-ulgr/Defn-ulgr}
 \input{./content/content-abcd/Defn-abcd}
 
-%% -- Eine gemeinsame bib-Datei sonst geht es nicht
-%% --
-\addbibresource{./bib/Rom.bib}
-%\addbibresource{./content/content-ulgr/bib-ulgr/Biblio-ulgr.bib}	
-%\addbibresource{./content/content-abcd/bib-abc/Biblio-abcd.bib}	
-
-\ExecuteBibliographyOptions{%
-	,backref		= false 			% true = was habe ich genutzt
- 	,url		= true		% true: URL werden angezeigt
- 	,doi		= false		% DOI werden im Titel hinterlegt 
-	,eprint		= false		% true  - ” -
-	}
-
-
 %% -- Links farbig etc.
 %% --
 \ifthenelse{\boolean{Rom2Buch}}
 	{\hypersetup{hidelinks=true}} % für Buch keine Links
-	{\hypersetup{%
+	{\hypersetup{% else für online
 		,colorlinks	= true                                                          
 		,urlcolor	= blue  %                                                              
 		,citecolor	= blue  %                                                          
-		,linkcolor	= blue	}
-	}	 % für online	
-
-%% -- Inhaltsverzeichnis -> Die Vorträge
-%% -- KOMA-Script 12.4
-%% --
-\renewcaptionname{ngerman}{\contentsname}{Die Vorträge}
-
-%% -- Keine ganze Zeile Abstand
-%% -- KOMA-Script 15.3; Abb. 15.1
-%% --
-\DeclareTOCStyleEntries[
-	raggedentrytext,
-	beforeskip=.8em plus 1pt
-]{tocline}{chapter}
-
-\newcommand{\LongTitel}{}
-\newcommand{\ShortTitel}{}
-\newcommand{\AutorenBeitrag}{}
-
-%% -- Die Abkürzungen
-%% --
-%\input{./preamble/Rom-Abkuerzungen}
+		,linkcolor	= blue	}}	 	
 
 %% -- Einstellungen Dictum; siehe KOMA Seite 138-140
 %% --
@@ -144,67 +102,3 @@
 
 %% --
 \end{document} 
-
-
-
-%% -- Buch- oder Onlineversion
-%% -- 
-%\usepackage{ifthen}
-%	\newboolean{Rom2Buch}
-%	\setboolean{Rom2Buch}{false} % true = Buchversion / false = online
-	
-%\ifthenelse{\boolean{Rom2Buch}}
-%	{\KOMAoptions{open = right}} % für Buch
-%	{\KOMAoptions{open = any}}	 % für online	
-	
-%%% -- Unterstützung von Paketen
-%%% --
-%\usepackage{scrhack}
-
-%%% -- Gehe davon aus, dass alle UTF8-nutzen
-%%% -- und biete auch LuaLaTeX an
-%%% -- 
-%\usepackage{iftex}
-%\ifluatex
-%    \usepackage{libertinus-otf}
-%	\unimathsetup{partial=upright}
-%    \unimathsetup{math-style=ISO}
-%    \setmathfont[range=\mathcal, Scale=MatchUppercase]{LatinModernMath-Regular}
-%   \setmathfont[range={\mathfrak},Scale=MatchUppercase]{LatinModernMath-Regular}
-%\else
-%	\usepackage[T1]{fontenc}	
-%	\usepackage{libertinus}	
-%\fi 
-
-
-%%% -- Sprache und Anführungszeichen richtig
-%%% -- Andere Sprache via \selectlanguage{sprache}; siehe Manual
-%%% -- 
-%\usepackage[%
-%	,english
-%	,italian
-%	,french
-%	,main=ngerman]{babel} 
-%
-%%% -- Richtige Trennung
-%%% --
-%\babelprovide[hyphenrules=ngerman-x-latest]{ngerman}
-%
-%%% -- Hochkomma: Eingabe mittels \enquote{text}; dann wird alles richtig
-%%% --
-%\usepackage[%
-%	,autostyle
-%	,italian = guillemets
-%	,french  = guillemets
-%	,german  = guillemets
-%	,english = american]{csquotes}
-
-%% -- Das Layout
-%% --
-%\usepackage{./preamble/Rom-Layout}
-
-
-%% -- Die einzelnen Referenzen mit 
-%% -- \begin{refsection} .. \printbibliography \end{refsection} in dem jeweiligen Artikel
-%% --
-%\input{./preamble/Rom-BibLaTeX} 
