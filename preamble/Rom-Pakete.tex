@@ -4,43 +4,7 @@
 %% -- Muss mal sehen, wie ich dieses besser machen kann
 %% --
 
-%% -- Mathematik
-\usepackage{%
-	,amsmath
-	,amssymb
-	,amsthm} 
-\usepackage[tbtags]{mathtools}
 
-%% -- Theoreme etc. ohne Nummerierung
-%% -- 
-\newtheoremstyle{rom}
-{3pt}% ⟨Space above ⟩ 
-{3pt}% ⟨Space below ⟩ 
-{}% ⟨Body font ⟩
-{}% ⟨Indent amount ⟩2
-{\itshape}% ⟨Theorem head font⟩
-{}% ⟨Punctuation after theorem head ⟩
-{.5em}% ⟨Space after theorem head ⟩ 
-{}% 
-\theoremstyle{rom}
-	\newtheorem*{theorem}{Theorem}
-	\newtheorem*{thm}{Theorem}
-	\newtheorem*{proposition}{Satz}
-	\newtheorem*{prop}{Satz}
-	\newtheorem*{corollary}{Korollar}
-	\newtheorem*{cor}{Korollar}
-	\newtheorem*{lemma}{Lemma}
-
-%% -- Symbole
-%% --
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\N}{\mathbb{N}}
-
-%% -- Sonstiges
-%% --
 
 
 %% -- Aufzählungen
@@ -95,13 +59,5 @@
 %% -- infobox
 \newmdenv{infobox} %% \begin{infobox} .. \end{infobox}
 
-%% -- Querverweise
-%% -- 
-\usepackage[nospace]{varioref}	% \vref
-% -----------------------------------------------------------
-\RequirePackage[%  
-	,breaklinks= true                                                     
-	]{hyperref}          		%% \href{xterner-Link}{Bezeichnung-in-Doku}
-% -----------------------------------------------------------
-\usepackage{cleveref}
+
 

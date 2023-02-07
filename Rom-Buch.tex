@@ -20,81 +20,27 @@
 	,paper 		= a4
 	,pagesize
 	,BCOR		= 15mm		% siehe KOMA-Script 2.6, S. 39
-	,twoside	= true		% siehe KOMA-Script 2.6, S. 47
+	,twoside		= true			% siehe KOMA-Script 2.6, S. 47
 	,fontsize	= 12pt		% Standard ist 11pt
 % 	,DIV		= calc		% siehe KOMA-Script 2.6, S. 42
 	,headings 	= small		% siehe KOMA-Script 3.16, S. 113
 	}
 
-%% -- Buch- oder Onlineversion
-%% -- 
-\usepackage{ifthen}
-	\newboolean{Rom2Buch}
-	\setboolean{Rom2Buch}{false} % true = Buchversion / false = online
-	
-\ifthenelse{\boolean{Rom2Buch}}
-	{\KOMAoptions{open = right}} % für Buch
-	{\KOMAoptions{open = any}}	 % für online	
-	
-%% -- Unterstützung von Paketen
-%% --
-\usepackage{scrhack}
+\input{./preamble/Rom-Pakete}
 
-%% -- Gehe davon aus, dass alle UTF8-nutzen
-%% -- und biete auch LuaLaTeX an
-%% -- 
-\usepackage{iftex}
-\ifluatex
-    \usepackage{libertinus-otf}
-	\unimathsetup{partial=upright}
-    \unimathsetup{math-style=ISO}
-    \setmathfont[range=\mathcal, Scale=MatchUppercase]{LatinModernMath-Regular}
-   \setmathfont[range={\mathfrak},Scale=MatchUppercase]{LatinModernMath-Regular}
-\else
-	\usepackage[T1]{fontenc}	
-	\usepackage{libertinus}	
-\fi 
-
-
-%% -- Sprache und Anführungszeichen richtig
-%% -- Andere Sprache via \selectlanguage{sprache}; siehe Manual
-%% -- 
-\usepackage[%
-	,english
-	,italian
-	,french
-	,main=ngerman]{babel} 
-
-%% -- Richtige Trennung
-%% --
-\babelprovide[hyphenrules=ngerman-x-latest]{ngerman}
-
-%% -- Hochkomma: Eingabe mittels \enquote{text}; dann wird alles richtig
-%% --
-\usepackage[%
-	,autostyle
-	,italian = guillemets
-	,french  = guillemets
-	,german  = guillemets
-	,english = american]{csquotes}
-
-%% -- Das Layout
-%% --
-\input{./preamble/Rom-Layout}
+\usepackage[
+%	,Rom2Buch
+	,Rom2Online
+	]{./preamble/Rom-Buch}
 
 %% -- Die Pakete
 %% --
-\input{./preamble/Rom-Pakete}
 
-%% -- Die Abkürzungen
-%% --
-\input{./preamble/Rom-Abkuerzungen}
+
+
 
 %% -- Literatur
-%% -- Die einzelnen Referenzen mit 
-%% -- \begin{refsection} .. \printbibliography \end{refsection} in dem jeweiligen Artikel
-%% --
-\input{./preamble/Rom-BibLaTeX} 
+
 
 %% -- Eine gemeinsame bib-Datei sonst geht es nicht
 %% --
@@ -117,7 +63,7 @@
 
 %% -- Eine gemeinsame bib-Datei sonst geht es nicht
 %% --
-\addbibresource{./bib/Rom-Biblio.bib}
+\addbibresource{./bib/Rom.bib}
 %\addbibresource{./content/content-ulgr/bib-ulgr/Biblio-ulgr.bib}	
 %\addbibresource{./content/content-abcd/bib-abc/Biblio-abcd.bib}	
 
@@ -157,6 +103,10 @@
 \newcommand{\ShortTitel}{}
 \newcommand{\AutorenBeitrag}{}
 
+%% -- Die Abkürzungen
+%% --
+%\input{./preamble/Rom-Abkuerzungen}
+
 %% -- Einstellungen Dictum; siehe KOMA Seite 138-140
 %% --
 \renewcommand{\dictumwidth}{0.45\textwidth}
@@ -194,3 +144,67 @@
 
 %% --
 \end{document} 
+
+
+
+%% -- Buch- oder Onlineversion
+%% -- 
+%\usepackage{ifthen}
+%	\newboolean{Rom2Buch}
+%	\setboolean{Rom2Buch}{false} % true = Buchversion / false = online
+	
+%\ifthenelse{\boolean{Rom2Buch}}
+%	{\KOMAoptions{open = right}} % für Buch
+%	{\KOMAoptions{open = any}}	 % für online	
+	
+%%% -- Unterstützung von Paketen
+%%% --
+%\usepackage{scrhack}
+
+%%% -- Gehe davon aus, dass alle UTF8-nutzen
+%%% -- und biete auch LuaLaTeX an
+%%% -- 
+%\usepackage{iftex}
+%\ifluatex
+%    \usepackage{libertinus-otf}
+%	\unimathsetup{partial=upright}
+%    \unimathsetup{math-style=ISO}
+%    \setmathfont[range=\mathcal, Scale=MatchUppercase]{LatinModernMath-Regular}
+%   \setmathfont[range={\mathfrak},Scale=MatchUppercase]{LatinModernMath-Regular}
+%\else
+%	\usepackage[T1]{fontenc}	
+%	\usepackage{libertinus}	
+%\fi 
+
+
+%%% -- Sprache und Anführungszeichen richtig
+%%% -- Andere Sprache via \selectlanguage{sprache}; siehe Manual
+%%% -- 
+%\usepackage[%
+%	,english
+%	,italian
+%	,french
+%	,main=ngerman]{babel} 
+%
+%%% -- Richtige Trennung
+%%% --
+%\babelprovide[hyphenrules=ngerman-x-latest]{ngerman}
+%
+%%% -- Hochkomma: Eingabe mittels \enquote{text}; dann wird alles richtig
+%%% --
+%\usepackage[%
+%	,autostyle
+%	,italian = guillemets
+%	,french  = guillemets
+%	,german  = guillemets
+%	,english = american]{csquotes}
+
+%% -- Das Layout
+%% --
+%\usepackage{./preamble/Rom-Layout}
+
+
+%% -- Die einzelnen Referenzen mit 
+%% -- \begin{refsection} .. \printbibliography \end{refsection} in dem jeweiligen Artikel
+%% --
+%\input{./preamble/Rom-BibLaTeX} 

@@ -1,0 +1,48 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% -- Rom-Mathematik.sty 
+%% -- Theorem-Umgebungen, sinnvolle Abkürzungen etc.
+%% -- Stand: 2023/02/07
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Kenndaten
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}											
+\ProvidesPackage{Rom-Mathematik}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Initialisierungen
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%\RequirePackage{thmtools}
+
+%% -- Theoreme etc. ohne Nummerierung
+%% -- 
+\newtheoremstyle{rom}
+{3pt}% ⟨Space above ⟩ 
+{3pt}% ⟨Space below ⟩ 
+{}% ⟨Body font ⟩
+{}% ⟨Indent amount ⟩2
+{\itshape}% ⟨Theorem head font⟩
+{}% ⟨Punctuation after theorem head ⟩
+{.5em}% ⟨Space after theorem head ⟩ 
+{}% 
+\theoremstyle{rom}
+	\newtheorem*{theorem}{Theorem}
+	\newtheorem*{thm}{Theorem}
+	\newtheorem*{proposition}{Satz}
+	\newtheorem*{prop}{Satz}
+	\newtheorem*{corollary}{Korollar}
+	\newtheorem*{cor}{Korollar}
+	\newtheorem*{lemma}{Lemma}
+
+%% -- Symbole
+%% --
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+%% -- Sonstiges
+%% --

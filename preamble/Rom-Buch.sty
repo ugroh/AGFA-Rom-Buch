@@ -12,32 +12,22 @@
 %% -- Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{ifthen, iftex}
-	\newboolean{Rom2Buch}			%%
-	\setboolean{Rom2Buch}{false}	%%
-	
+	\provideboolean{Rom2Buch}
+	\provideboolean{Rom2Online}
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% -- Deklaration von Optionen
 %% -- Wir verwenden KOMA-Script
-%% -- 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \DeclareOption*{\expandafter\PassOptionsToClass\expandafter{\CurrentOption}{scrartcl}}
 
+\DeclareOption{Rom2Buch}{\setboolean{Rom2Buch}{true}} 
+\DeclareOption{Rom2Online}{\setboolean{Rom2Buch}{false}} 
 
-%% -- mathematische Umgebungen mit / ohne Rahmen 
-\DeclareOption{framed}{\PassOptionsToPackage{framed}{agfa-ablatt-theorem}}
-	 
-
-
-%% -- Referenzen
-%% -- numeric ist fest eingestellt
-%% -- urldoi fest eingestellt
-
-
-%% -- Kein Englisch nur Deutsch
-%% -- Englisch über setlanguage
-%% --
-
+\ifthenelse{\boolean{Rom2Buch}}
+	{\KOMAoptions{open = right}} % für Buch
+	{\KOMAoptions{open = any}}	 % für online
 
 \ProcessOptions\relax
 
@@ -45,25 +35,71 @@
 %% Laden von Paketen 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+\RequirePackage{scrhack}
+\RequirePackage{../preamble/Rom-Layout}
+\RequirePackage{../preamble/Rom-BibLaTeX}
 
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Abarbeiten
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
 %% -- LuaLaTeX oder PDFLaTeX
 \ifluatex
-    \usepackage{libertinus-otf}
+    \RequirePackage{libertinus-otf}
 	\unimathsetup{partial=upright}
     \unimathsetup{math-style=ISO}
     \setmathfont[range=\mathcal, Scale=MatchUppercase]{LatinModernMath-Regular}
    \setmathfont[range={\mathfrak},Scale=MatchUppercase]{LatinModernMath-Regular}
 \else
-	\usepackage[T1]{fontenc}	
-	\usepackage{libertinus}	
+	\RequirePackage[T1]{fontenc}	
+	\RequirePackage{libertinus}	
+\fi
 
-%% -- Babel und Gänsefüßchen
+%% -- Sprache und Anführungszeichen richtig
+%% -- Andere Sprache via \selectlanguage{sprache}; siehe Manual
 %% -- 
+\RequirePackage[%
+	,english
+	,italian
+	,french
+	,main=ngerman]{babel} 
 
-\fi 
+%% -- Richtige Trennung
+%% --
+\babelprovide[hyphenrules=ngerman-x-latest]{ngerman}
+
+%% -- Hochkomma: Eingabe mittels \enquote{text}; dann wird alles richtig
+%% --
+\RequirePackage[%
+	,autostyle
+	,italian = guillemets
+	,french  = guillemets
+	,german  = guillemets
+	,english = american]{csquotes}
+
+%% --	
+\let\digamma\relax
+\RequirePackage{%
+	,amsmath
+	,amssymb
+	,amsthm} 
+\RequirePackage[tbtags]{mathtools}	
+
+%% -- Querverweise und hyperref
+%% -- 
+\usepackage[nospace]{varioref}	% \vref
+% -----------------------------------------------------------
+\RequirePackage[%  
+	,breaklinks= true                                                     
+	]{hyperref}          		%% \href{xterner-Link}{Bezeichnung-in-Doku}
+% -----------------------------------------------------------
+\usepackage{cleveref}
+
+%% -- Abkürzungen
+%% --
+\RequirePackage{../preamble/Rom-Abkuerzungen}
+
+\RequirePackage{../preamble/Rom-Mathematik}
