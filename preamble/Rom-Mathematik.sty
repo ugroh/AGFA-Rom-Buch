@@ -11,30 +11,22 @@
 % Initialisierungen
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\RequirePackage{amsthm}
+\RequirePackage{thmtools}
 
 
-
-%\RequirePackage{thmtools}
-
-%% -- Theoreme etc. ohne Nummerierung
+%% -- Theoreme etc. 
 %% -- 
-\newtheoremstyle{rom}
-{3pt}% ⟨Space above ⟩ 
-{3pt}% ⟨Space below ⟩ 
-{}% ⟨Body font ⟩
-{}% ⟨Indent amount ⟩2
-{\itshape}% ⟨Theorem head font⟩
-{}% ⟨Punctuation after theorem head ⟩
-{.5em}% ⟨Space after theorem head ⟩ 
-{}% 
-\theoremstyle{rom}
-	\newtheorem*{theorem}{Theorem}
-	\newtheorem*{thm}{Theorem}
-	\newtheorem*{proposition}{Satz}
-	\newtheorem*{prop}{Satz}
-	\newtheorem*{corollary}{Korollar}
-	\newtheorem*{cor}{Korollar}
-	\newtheorem*{lemma}{Lemma}
+
+\declaretheorem[mdframed]{theorem}
+\declaretheorem[sibling=theorem]{lemma} 
+\declaretheorem[name=Korollar, sibling=theorem]{corollary}
+\declaretheorem[name=Satz, sibling=theorem]{proposition}
+
+\declaretheorem[sibling=theorem, style=definition]{definition}
+
+\declaretheorem[sibling=theorem, name=Anmerkung, style=remark]{remark}
+\declaretheorem[sibling=theorem, name=Zusammenfassung, style=remark]{summary}
 
 %% -- Symbole
 %% --

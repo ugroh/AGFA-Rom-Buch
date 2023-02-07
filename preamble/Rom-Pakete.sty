@@ -12,13 +12,17 @@
 %% -- Aufzählungen
 %% -- für Aufzählungen im Text = Sternvariante
 %% -- damit \begin{enumerate}[(i)] funktioniert
+%% --
 \RequirePackage[inline,shortlabels]{enumitem}
 	
 %% -- tikz
+%% -- Siehe https://texample.net/tikz/examples/all/
+%% -- für Beispiele
+%% --
 \RequirePackage{tikz}
 \usetikzlibrary{positioning,arrows}
 
-%% -- Pakete mit Referenz
+%% -- Weitere Pakete
 %% -- 
 \RequirePackage[newcommands,footnotes,raggedrightboxes]{ragged2e}
 	
@@ -48,6 +52,9 @@
 %% -- Wenn schon, dann muss man es auch definieren
 %% -- 
 \RequirePackage{nicefrac}
+%% -- E/F
+\newcommand{\tfrac}[2]{\raisebox{0.5ex}{#1}\big/\raisebox{-0.5ex}{#2}}
+
 
 %% -- Zum Testen
 %% -- 
