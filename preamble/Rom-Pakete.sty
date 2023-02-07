@@ -1,28 +1,28 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% -- Die Pakete für RomSeminar
-%% -- Stand: 2023/02/02
 %% -- Literatur: H. Voss, Einführung in LaTeX (7. Auflage) 2022 
-%% -- Muss mal sehen, wie ich dieses besser machen kann
-%% --
+%% -- Rom-Pakete.sty
+%% -- Stand: 2023/02/07
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
+\NeedsTeXFormat{LaTeX2e}	 
+\ProvidesPackage{Rom-Pakete}
+%%
 
 %% -- Aufzählungen
-%% -- 
-\usepackage[%
-	,inline			% für Aufzählungen im Text = Sternvariante
-	,shortlabels	% damit \begin{enumerate}[(i)] funktioniert
-	]{enumitem}
+%% -- für Aufzählungen im Text = Sternvariante
+%% -- damit \begin{enumerate}[(i)] funktioniert
+\RequirePackage[inline,shortlabels]{enumitem}
 	
 %% -- tikz
-\usepackage{tikz}
+\RequirePackage{tikz}
 \usetikzlibrary{positioning,arrows}
 
 %% -- Pakete mit Referenz
 %% -- 
-\usepackage[newcommands,footnotes,raggedrightboxes]{ragged2e}
+\RequirePackage[newcommands,footnotes,raggedrightboxes]{ragged2e}
 	
-\usepackage{% Voss, LaTeX - 6.3 - Seite 227ff					
+\RequirePackage{% Voss, LaTeX - 6.3 - Seite 227ff					
 	,array 			   	
 	,booktabs
 	,tabularx
@@ -47,15 +47,15 @@
 
 %% -- Wenn schon, dann muss man es auch definieren
 %% -- 
-\usepackage{nicefrac}
+\RequirePackage{nicefrac}
 
 %% -- Zum Testen
 %% -- 
-\usepackage{blindtext,lipsum}
+\RequirePackage{blindtext,lipsum}
 
 %% -- Für Rahmen
 %% -- 
-\usepackage{mdframed}
+\RequirePackage{mdframed}
 %% -- infobox
 \newmdenv{infobox} %% \begin{infobox} .. \end{infobox}
 
