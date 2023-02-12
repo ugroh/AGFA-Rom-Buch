@@ -23,11 +23,17 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{amsmath}		%
 \RequirePackage[amsmath,thmmarks]{ntheorem}
-\RequirePackage{thmtools}
+%%\RequirePackage{thmtools}
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Hauptteil
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% -- Nummerierung von Gleichungen
+%% -- \setcounter{section}{1} 
+%% -- 
+	\numberwithin{equation}{section}
+	\renewcommand\theequation{\arabic{equation}} 
 
 %% -- Theoremumgebungen mit Nummer
 %% -- 
