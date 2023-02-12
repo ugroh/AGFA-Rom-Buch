@@ -1,33 +1,33 @@
-### Vorlage für das Rom-Buch
+# Vorlage für das Rom-Buch (Stand 2023/02/12)
 
-#### Ablauf
+## Ablauf
 
-* Teilnehmer stellen Ihren Beitrag. Die Regelungen für die Bezeichnungen finden sich in dem [ReadMe.md](https://github.com/ugroh/AGFA-Rom-Teilnehmer/blob/main/ReadMe.md) in der Vorlage für die Teilnehmer.
+* Teilnehmer erstellen Ihren Beitrag mit den Regelungen für die Bezeichnungen, die sich in dem [README.md](https://github.com/ugroh/AGFA-Rom-Teilnehmer/blob/main/README.md) für die Teilnehmer findet. 
 
-* das Unterverzeichnis `content-abcd` wird in das Unterverzeichnis `content` kopiert und via 
+* Die Teilnehmer schicken ihren Beitrag als `content-abcd.zip` zu und dieses wird in dem Unterverzeichnis  `content` entpackt.
+
+* Der Beitrag wird über  
 
 	  \input{./content/content-abcd/abcd-Beitrag}
 	  
-	wird es eingebunden.
+	eingebunden.
 	
 *  Die `abcd-Biblio.bib` müssen in eine einzige Datei übertragen werden (muss dies nochmals prüfen). Diese findet sich in 
 
-	\addbibresource{./bib/Rom-Biblio.bib}
+	\addbibresource{./bib/Rom-Biblio.bib}.
 	
-	eingebunden. Für die Pflege der eigenen Bibliothek ist der Teilnehmer verantwortlich. 
+	Für die Pflege der eigenen Bibliothek ist der Teilnehmer verantwortlich (da werden wir aber noch eine separate Schulung machen müssen). 
 	
-*  Zu klären sind dann noch die verwendeten eigenen definitionen der Teilnehmer. Vielleicht ist es insgesamt besser, wenn man alle in eine Gesamtdatei überführt und diese prüft. 
+## Sonstiges
 
-#### Sonstiges
+* Hier findet sich die [Vorlage der Teilnehmer](https://github.com/ugroh/AGFA-Rom-Teilnehmer) 
 
-* Zur [Vorlage der Teilnehmer](https://github.com/ugroh/AGFA-Rom-Teilnehmer) 
-* **TODO** Überarbeiten, damit alles kompakter wird.
 
-#### Updates
+## Updates
 
-* 2023/02/05 : Man kann nun wählen, ob man ein Rom-Buch als PDF haben will (dann fangen alle Beiträge auf einer ungeraden Seite an), oder ob man eine Online-Version haben will (kompakter). 
+* 2023/02/05  : Man kann nun wählen, ob man ein Rom-Buch als PDF haben will (dann fangen alle Beiträge auf einer ungeraden Seite an), oder ob man eine Online-Version haben will (kompakter). 
 
-* 2023/02/04 : LuaLaTeX Unterstützung; man kann sowohl mot PDFLaTeX als auch mit LuaLaTeX die Datei kompilieren. Der Vorteil von LuaLaTeX ist es, dass alle Unicode-Charakter unterstützt werden.
+* 2023/02/04  : LuaLaTeX Unterstützung; man kann sowohl mit PDFLaTeX als auch mit LuaLaTeX die Datei kompilieren. Der Vorteil von LuaLaTeX ist es, dass alle Unicode-Charakter unterstützt werden.
 
 <ulgr@math.uni-tuebingen.de>
 
