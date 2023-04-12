@@ -25,7 +25,7 @@
 
 ## Updates
 
-* 2023/04/12: Der »Aufschlag« für das Romseminar 2024 ist eingestellt inkl. des zugehörigen Posters.
+* 2023/04/12: Der »Aufschlag« für das Romseminar 2024 ist eingestellt inkl. des zugehörigen Posters. Dieses findet sich in `./content`.
 
 * 2023/02/05  : Man kann nun wählen, ob man ein Rom-Buch als PDF haben will (dann fangen alle Beiträge auf einer ungeraden Seite an), oder ob man eine Online-Version haben will (kompakter). 
 
