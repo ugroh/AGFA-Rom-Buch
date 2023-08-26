@@ -8,7 +8,7 @@
 
 * Der Beitrag wird über  
 
-	  \input{./content/content-abcd/abcd-Beitrag}
+	`\input{./content/content-abcd/abcd-Beitrag}`
 	  
 	eingebunden.
 	
