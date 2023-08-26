@@ -14,7 +14,7 @@
 	
 *  Die `abcd-Biblio.bib` müssen in eine einzige Datei übertragen werden (muss dies nochmals prüfen). Diese findet sich in 
 
-	\addbibresource{./bib/Rom-Biblio.bib}.
+	`\addbibresource{./bib/Rom-Biblio.bib}`.
 	
 	Für die Pflege der eigenen Bibliothek ist der Teilnehmer verantwortlich (da werden wir aber noch eine separate Schulung machen müssen). 
 	
